@@ -1,14 +1,11 @@
-FROM node:12.18.4
- 
-WORKDIR /app
- 
-COPY package.json package.json
-COPY package-lock.json package-lock.json
- 
-RUN npm install
- 
-COPY . .
- EXPOSE 80
- EXPOSE 443
-CMD [ "npm", "start" ]
-#CMD [ "node", "www.js" ]
+FROM node:14-alpine
+
+WORKDIR /src
+COPY package.json package-lock.json /src/
+RUN npm install --production
+
+COPY . /src
+
+EXPOSE 3000
+
+CMD ["node", "bin/www"]
