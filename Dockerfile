@@ -10,5 +10,6 @@ RUN npm install
 COPY . .
  EXPOSE 80
  EXPOSE 443
- CMD [ "node", "app.js" ]
+ CMD [ "npm", "start" ]
+ #CMD [ "node", "app.js" ]
 #CMD [ "node", "www.js" ]
