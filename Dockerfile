@@ -1,4 +1,4 @@
-FROM node:12.18.4
+FROM node:alpine
  
 WORKDIR /app
  
@@ -10,5 +10,4 @@ RUN npm install
 COPY . .
  EXPOSE 80
  EXPOSE 443
- CMD [ "node", "app.js" ]
-#CMD [ "node", "www.js" ]
+CMD ["npm","run","dev"]
