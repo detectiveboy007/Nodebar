@@ -1,14 +1,15 @@
-FROM node:12.18.4
- 
+FROM node:12
+
 WORKDIR /app
- 
-COPY package.json package.json
-COPY package-lock.json package-lock.json
- 
+
+COPY package*.json ./
+
 RUN npm install
- 
+
 COPY . .
- EXPOSE 80
- EXPOSE 443
- CMD [ "node", "app.js" ]
-#CMD [ "node", "www.js" ]
+
+ENV PORT=8080
+
+EXPOSE 8080
+
+CMD [ "npm", "start" ]
