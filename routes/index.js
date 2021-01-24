@@ -25,7 +25,7 @@ var canvas = new Canvas.createCanvas();
 //generate barcode image
 JsBarcode(canvas,barcodeData);
 //set return type is jpg file
-res.contentType('image/jpeg');
+res.contentType('image/png');
 //respose to apps
 res.end(canvas.toBuffer());
 
